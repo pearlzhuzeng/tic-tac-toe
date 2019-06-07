@@ -96,7 +96,7 @@ RSpec.describe TicTacToeBoard do
       expect(TicTacToeBoard.new(positions).winner).to eq ('o')
     end
 
-    it 'it determines a win when a left to right diagonal connects' do
+    it 'determines a win when a left to right diagonal connects' do
       positions = [
               'o', 'x', 'o',
               'x', 'o', 'x',
@@ -105,13 +105,22 @@ RSpec.describe TicTacToeBoard do
       expect(TicTacToeBoard.new(positions).winner).to eq ('o')
     end
 
-    it 'it determines a win when a right to left diagonal connects' do
+    it 'determines a win when a right to left diagonal connects' do
       positions = [
               'x', 'o', 'x',
               'o', 'x', 'o',
               'x', 'x', 'o'
             ]
       expect(TicTacToeBoard.new(positions).winner).to eq ('x')
+    end
+
+    it 'returns nil when there is no winner' do
+      positions = [
+              'x', 'o', 'x',
+              'o', 'x', 'o',
+              'o', 'x', 'o'
+            ]
+      expect(TicTacToeBoard.new(positions).winner).to eq (nil)
     end
   end
 end
