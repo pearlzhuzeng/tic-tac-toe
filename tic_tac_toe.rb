@@ -39,11 +39,7 @@ class TicTacToeBoard
   end
 
   def win_at?(winning_arrangement)
-    items = [
-      @positions[winning_arrangement[0]],
-      @positions[winning_arrangement[1]],
-      @positions[winning_arrangement[2]]
-    ]
+    items = winning_arrangement.map { |position| @positions[position]}
     items.uniq.length == 1 && !items.first.nil?
   end
 
